@@ -21,14 +21,23 @@ import java.net.URISyntaxException;
 public class ServiceBController {
     public static final String SERVICE_A = "service-a";
     private Logger logger = LoggerFactory.getLogger(ServiceBController.class);
+    private RestClient restClient;
 
+    public ServiceBController(RestClient restClient) {
+        this.restClient = restClient;
+    }
 
     @GetMapping("/serviceb/sansdb")
     public String getServiceB() throws URISyntaxException {
 
         logger.info("requete vers getService B");
 
-        String serviceAResponse = "pas encore fait"
+//        String serviceAResponse = "pas encore fait";
+       URI serviceInstanceUri = new URI("http://service-a/8080");
+        String serviceAResponse = restClient.get()
+                .uri(serviceInstanceUri + "/message/sansdb")
+                .retrieve()
+                .body(String.class);
         return serviceAResponse + " reçu du service B";
     }
 

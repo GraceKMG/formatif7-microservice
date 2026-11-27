@@ -1,0 +1,7 @@
+services:
+  gateway:
+    container_name: gateway
+  service-a:
+    container_name: service-a
+  service-b:
+    container_name: service-b

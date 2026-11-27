@@ -4,6 +4,12 @@
   <groupId>web2.formatifs</groupId>
   <artifactId>formatif7-microservice</artifactId>
   <version>1.0-SNAPSHOT</version>
+  <packaging>pom</packaging>
   <name>Archetype - formatif7-microservice</name>
   <url>http://maven.apache.org</url>
+  <modules>
+    <module>service-a</module>
+    <module>service-b</module>
+    <module>gateway</module>
+  </modules>
 </project>

@@ -1,0 +1,22 @@
+services:
+#  gateway:
+#    container_name: gateway
+#  service-a:
+#    container_name: service-a
+#  service-b:
+#    container_name: service-b
+  db:
+    image: mysql:latest
+    container_name: db
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: efght55&&
+      MYSQL_DATABASE: messagedb
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+volumes:
+  mysql_data:

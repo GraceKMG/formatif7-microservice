@@ -1,8 +1,20 @@
 services:
 #  gateway:
 #    container_name: gateway
-#  service-a:
-#    container_name: service-a
+  service-a:
+    build: ./service-a
+    container_name: service-a
+    environment:
+      spring.datasource.url: jdbc:mysql://db:3306/messagedb
+      spring.datasource.username: user
+      spring.datasource.password: password
+      spring.datasource.driver-class-name: com.mysql.cj.jdbc.Driver
+      spring.jpa.hibernate.ddl-auto: update
+    depends_on:
+      - db
+    ports:
+      - "8081:8080"
+      - "5005:5005"
 #  service-b:
 #    container_name: service-b
   db:
